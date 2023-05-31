@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -45,7 +46,7 @@ public class ZAPTest {
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() throws Exception {
         if (api != null) {
             String title = "POC ZAP Selenium - Abstracta";
             String template = "traditional-html";
@@ -56,7 +57,7 @@ public class ZAPTest {
                 ApiResponse res = api.reports.generate(title, template, null, description, null, null, null,null, null,  reportfilename,null, targetFolder,null);
                 System.out.println("Reporte de ZAP generado aqui: " + res.toString());
             } catch (ClientApiException ex) {
-                ex.printStackTrace();
+                throw new Exception(ex);
             }
 
         }
