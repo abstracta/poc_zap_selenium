@@ -1,5 +1,8 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+<<<<<<< HEAD
 import net.bytebuddy.implementation.bytecode.Throw;
+=======
+>>>>>>> origin/main
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
